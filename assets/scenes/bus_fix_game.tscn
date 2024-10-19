@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://dn8im1kydhhh4"]
+[gd_scene load_steps=3 format=3 uid="uid://dn8im1kydhhh4"]
+
+[ext_resource type="Texture2D" uid="uid://c2bpuvkmni135" path="res://assets/sprites/busGame/red valve.png" id="1_cdfmb"]
+[ext_resource type="Texture2D" uid="uid://v406ym62nd4x" path="res://assets/sprites/busGame/motherboard.png" id="1_cjfg0"]
 
 [node name="BusFix" type="Node2D"]
+position = Vector2(1611, 1202)
+
+[node name="Button" type="Sprite2D" parent="."]
+visible = false
+
+[node name="Wire" type="Sprite2D" parent="."]
+visible = false
+
+[node name="Valve" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(570, 415)
+texture = ExtResource("1_cdfmb")
+centered = false
+
+[node name="Motherboard" type="Sprite2D" parent="."]
+position = Vector2(-85.5, -255)
+scale = Vector2(0.946894, 0.7875)
+texture = ExtResource("1_cjfg0")
