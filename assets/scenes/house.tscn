@@ -920,8 +920,8 @@ size = Vector2(78.1062, 113.816)
 size = Vector2(45, 29.5)
 
 [node name="House_Tiling" type="Node2D"]
-position = Vector2(576, 256)
-scale = Vector2(2, 2)
+position = Vector2(512, 256)
+scale = Vector2(2.99264, 3)
 script = ExtResource("1_kvf2h")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
