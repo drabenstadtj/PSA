@@ -1,26 +1,65 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn8im1kydhhh4"]
+[gd_scene load_steps=9 format=3 uid="uid://dn8im1kydhhh4"]
 
 [ext_resource type="Texture2D" uid="uid://d0ihsr5t36xsd" path="res://assets/sprites/busGame/red valve.png" id="1_cdfmb"]
 [ext_resource type="Texture2D" uid="uid://dlvvt3j0vuy5d" path="res://assets/sprites/busGame/motherboard.png" id="1_cjfg0"]
 [ext_resource type="Script" path="res://assets/scripts/bus_fix_game.gd" id="1_rsa0n"]
+[ext_resource type="Texture2D" uid="uid://expi41pgtn4e" path="res://assets/sprites/busGame/button.png" id="3_m7sbf"]
+[ext_resource type="Texture2D" uid="uid://c54it00ueyk8s" path="res://assets/sprites/busGame/wire.png" id="3_x0jvx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x8nvr"]
+radius = 203.002
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_35ob8"]
+radius = 103.035
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y28nt"]
+size = Vector2(206.438, 365.688)
 
 [node name="BusFix" type="Node2D"]
 position = Vector2(1611, 1202)
 script = ExtResource("1_rsa0n")
 
-[node name="Button" type="Sprite2D" parent="."]
-visible = false
+[node name="Motherboard" type="Sprite2D" parent="."]
+position = Vector2(-137, -255)
+scale = Vector2(0.914907, 0.7875)
+texture = ExtResource("1_cjfg0")
 
-[node name="Wire" type="Sprite2D" parent="."]
-visible = false
+[node name="button" type="Area2D" parent="."]
 
-[node name="Valve" type="Sprite2D" parent="."]
+[node name="Button" type="Sprite2D" parent="button"]
+position = Vector2(398, -212)
+scale = Vector2(0.7405, 0.7405)
+texture = ExtResource("3_m7sbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="button"]
+position = Vector2(401, -211)
+shape = SubResource("CircleShape2D_x8nvr")
+
+[node name="valve" type="Area2D" parent="."]
+
+[node name="valveSprite" type="Sprite2D" parent="valve"]
 top_level = true
-position = Vector2(570, 415)
+position = Vector2(546, 420)
 texture = ExtResource("1_cdfmb")
 centered = false
 
-[node name="Motherboard" type="Sprite2D" parent="."]
-position = Vector2(-85.5, -255)
-scale = Vector2(0.946894, 0.7875)
-texture = ExtResource("1_cjfg0")
+[node name="valveCollision" type="CollisionShape2D" parent="valve"]
+position = Vector2(-812, -530)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_35ob8")
+
+[node name="wire" type="Area2D" parent="."]
+
+[node name="wireSprite" type="Sprite2D" parent="wire"]
+position = Vector2(1223, -770)
+scale = Vector2(1, 0.145405)
+texture = ExtResource("3_x0jvx")
+
+[node name="wireCollision" type="CollisionShape2D" parent="wire"]
+position = Vector2(1239.22, -781.156)
+shape = SubResource("RectangleShape2D_y28nt")
+
+[connection signal="mouse_entered" from="valve" to="." method="grab"]
+[connection signal="mouse_exited" from="valve" to="." method="press"]
+[connection signal="mouse_entered" from="wire" to="." method="grab"]
+[connection signal="mouse_exited" from="wire" to="." method="press"]
