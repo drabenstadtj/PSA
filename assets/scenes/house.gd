@@ -23,3 +23,7 @@ func show_interaction_text(text: String):
 
 	# Add the Textbox to the scene tree (as a child of a UI layer, or directly to the root)
 	get_tree().root.add_child(textbox_instance)  # Add to the root or a UI container
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	pass # Replace with function body.

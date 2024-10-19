@@ -43,17 +43,13 @@ func _process(delta: float) -> void:
 	# Handle player interaction
 	if Input.is_action_just_pressed("interact") and current_interactable != null:
 		print("action pressed.")
+		print(current_interactable)
 		# Call the interact method on the interactable object
 		current_interactable.interact()
 
-# Signal handler when the player enters an interactable object's Area2D
-func _on_Area2D_body_entered(body):
-	print("body entered")
-	if body.is_in_group("interactable"):
-		current_interactable = body  # Store the interactable object
-
-# Signal handler when the player exits the interactable object's Area2D
-func _on_Area2D_body_exited(body):
-	print("body exited")
-	if body == current_interactable:
-		current_interactable = null  # Reset the interactable object when exiting the area
+func set_interactable(interactable: Node2D) -> void:
+	if interactable != null:
+		print("interactable set to:", interactable.name)
+	else:
+		print("interactable cleared")
+	current_interactable = interactable

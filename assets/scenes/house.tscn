@@ -1,12 +1,12 @@
-[gd_scene load_steps=21 format=4 uid="uid://bo13mffo6wcr3"]
+[gd_scene load_steps=22 format=4 uid="uid://bo13mffo6wcr3"]
 
 [ext_resource type="Script" path="res://assets/scenes/house.gd" id="1_kvf2h"]
-[ext_resource type="Texture2D" uid="uid://bw530c5q63cqc" path="res://assets/tiles/interior_tiles/TopDownHouse_FloorsAndWalls.png" id="1_qgqei"]
-[ext_resource type="Texture2D" uid="uid://g5awsq1qwm0y" path="res://assets/tiles/interior_tiles/TopDownHouse_SmallItems.png" id="2_7kwbo"]
-[ext_resource type="Texture2D" uid="uid://dvvdvaxgbuqfk" path="res://assets/tiles/interior_tiles/TopDownHouse_DoorsAndWindows.png" id="3_qdr2y"]
-[ext_resource type="Texture2D" uid="uid://fixlc21uiouo" path="res://assets/tiles/interior_tiles/TopDownHouse_FurnitureState1.png" id="4_0dgtn"]
-[ext_resource type="PackedScene" uid="uid://bsxlwcof00y8d" path="res://assets/Scenes/player.tscn" id="5_7488h"]
-[ext_resource type="PackedScene" uid="uid://bw8d74istlvm8" path="res://assets/Scenes/textbox.tscn" id="6_xuhqf"]
+[ext_resource type="Texture2D" uid="uid://bmmmaauuo2etx" path="res://assets/tiles/interior_tiles/TopDownHouse_FloorsAndWalls.png" id="1_qgqei"]
+[ext_resource type="Texture2D" uid="uid://bavcjsdwe6qu8" path="res://assets/tiles/interior_tiles/TopDownHouse_SmallItems.png" id="2_7kwbo"]
+[ext_resource type="Texture2D" uid="uid://ccmxyai5abpao" path="res://assets/tiles/interior_tiles/TopDownHouse_DoorsAndWindows.png" id="3_qdr2y"]
+[ext_resource type="Texture2D" uid="uid://yxijhx8q0ikc" path="res://assets/tiles/interior_tiles/TopDownHouse_FurnitureState1.png" id="4_0dgtn"]
+[ext_resource type="PackedScene" uid="uid://bsxlwcof00y8d" path="res://assets/scenes/player.tscn" id="5_7488h"]
+[ext_resource type="Script" path="res://assets/scenes/exit.gd" id="7_3nw3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqmt3"]
 size = Vector2(208, 26)
@@ -913,8 +913,11 @@ sources/2 = SubResource("TileSetAtlasSource_jxcs4")
 sources/3 = SubResource("TileSetAtlasSource_lbrky")
 sources/4 = SubResource("TileSetAtlasSource_y4wtn")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4vgq"]
-size = Vector2(12.886, 18.868)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2fym"]
+size = Vector2(78.1062, 113.816)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05asa"]
+size = Vector2(45, 29.5)
 
 [node name="House_Tiling" type="Node2D"]
 position = Vector2(576, 256)
@@ -955,15 +958,25 @@ tile_set = SubResource("TileSet_jayt6")
 tile_map_data = PackedByteArray("AAADAP//BAAEAA8AAAADAAAABAAIAAwAAAACAAAABAAHAAwAAAABAAAABAAGAAwAAAD//wAABAAEAAwAAAAAAAAABAAFAAwAAAD8////AwAPAAAAAAD8/wAAAwAPAAEAAAD8/wEAAwAPAAIAAAD//wEABAAEAA0AAAAAAAEABAAFAA0AAAABAAEABAAGAA0AAAACAAEABAAHAA0AAAADAAEABAAIAA0AAAD9/wIABAAMAAIAAAD//wIABAAEAA4AAAAAAAIABAAFAA4AAAABAAIABAAGAA4AAAACAAIABAAHAA4AAAD9/wMABAAMAAMAAAD8/wMABAALAAMAAAADAAIABAAIAA4AAAAFAAEABAAKAA0AAAAFAAIABAAKAA4AAAAFAAYABAAGAAkAAAD7/wIABAAKAAIAAAD7/wMABAAKAAMAAAD7/wQABAAMAAcAAAD7/wUABAAMAAgAAAD7/wEAAwAOAAIAAAD7/wAAAwAOAAEAAAD7////AwAOAAAAAAD7/wYABAAMAAkAAAAEAAIABAAJAA4AAAAFAAQABAAGAAcAAAAFAAUABAAGAAgAAAAEAAEABAAJAA0AAAAFAAAABAAKAAwAAAAEAAAABAAIAAwAAAAEAP//BAAFAA8AAAD6/wIABAAAAAsAAAD6/wQABAALAAcAAAD6/wUABAALAAgAAAD6/wYABAALAAkAAAD6/wEABAAAAAoAAAD+////AQAFAAEAAAD8/wIABAALAAIAAAA=")
 tile_set = SubResource("TileSet_jayt6")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-62, 30)
-scale = Vector2(4.65623, 1.90799)
-shape = SubResource("RectangleShape2D_g4vgq")
-
-[node name="Textbox" parent="." instance=ExtResource("6_xuhqf")]
-
 [node name="player" parent="." instance=ExtResource("5_7488h")]
-position = Vector2(-64, 32)
+position = Vector2(-1, 64)
 scale = Vector2(0.33288, 0.342657)
+
+[node name="PlayerArea" type="Area2D" parent="player"]
+
+[node name="PlayerInteractionCollision" type="CollisionShape2D" parent="player/PlayerArea"]
+position = Vector2(0, -10.2143)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_e2fym")
+
+[node name="Exit" type="Node2D" parent="." groups=["interactable"]]
+
+[node name="ExitArea" type="Area2D" parent="Exit"]
+script = ExtResource("7_3nw3w")
+
+[node name="ExitCollision" type="CollisionShape2D" parent="Exit/ExitArea"]
+position = Vector2(-55.5, 48.25)
+shape = SubResource("RectangleShape2D_05asa")
+
+[connection signal="area_entered" from="Exit/ExitArea" to="Exit/ExitArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Exit/ExitArea" to="Exit/ExitArea" method="_on_area_exited"]
