@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://csakxwl7ihff2"]
+[gd_scene load_steps=17 format=4 uid="uid://csakxwl7ihff2"]
 
-[ext_resource type="Texture2D" uid="uid://bw530c5q63cqc" path="res://assets/tiles/interior_tiles/TopDownHouse_FloorsAndWalls.png" id="1_qgqei"]
-[ext_resource type="Texture2D" uid="uid://g5awsq1qwm0y" path="res://assets/tiles/interior_tiles/TopDownHouse_SmallItems.png" id="2_7kwbo"]
-[ext_resource type="Texture2D" uid="uid://dvvdvaxgbuqfk" path="res://assets/tiles/interior_tiles/TopDownHouse_DoorsAndWindows.png" id="3_qdr2y"]
-[ext_resource type="Texture2D" uid="uid://fixlc21uiouo" path="res://assets/tiles/interior_tiles/TopDownHouse_FurnitureState1.png" id="4_0dgtn"]
+[ext_resource type="Texture2D" uid="uid://d1jyv2rkf05al" path="res://assets/tiles/interior_tiles/TopDownHouse_FloorsAndWalls.png" id="1_qgqei"]
+[ext_resource type="Texture2D" uid="uid://orck5fyskbl3" path="res://assets/tiles/interior_tiles/TopDownHouse_SmallItems.png" id="2_7kwbo"]
+[ext_resource type="Texture2D" uid="uid://rwuojg2oqtxt" path="res://assets/tiles/interior_tiles/TopDownHouse_DoorsAndWindows.png" id="3_qdr2y"]
+[ext_resource type="Texture2D" uid="uid://d1ql62vg5fnp6" path="res://assets/tiles/interior_tiles/TopDownHouse_FurnitureState1.png" id="4_0dgtn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4ltx"]
 texture = ExtResource("1_qgqei")
@@ -892,6 +892,24 @@ sources/2 = SubResource("TileSetAtlasSource_jxcs4")
 sources/3 = SubResource("TileSetAtlasSource_lbrky")
 sources/4 = SubResource("TileSetAtlasSource_y4wtn")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqmt3"]
+size = Vector2(208, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fr0b"]
+size = Vector2(208, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec3us"]
+size = Vector2(20, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xt42f"]
+size = Vector2(20, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0r7ff"]
+size = Vector2(120, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2awfs"]
+size = Vector2(34, 34)
+
 [node name="House_Tiling" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -902,3 +920,29 @@ tile_set = SubResource("TileSet_jayt6")
 z_index = 1
 tile_map_data = PackedByteArray("AAADAP//BAAEAA8AAAADAAAABAAIAAwAAAACAAAABAAHAAwAAAABAAAABAAGAAwAAAD//wAABAAEAAwAAAAAAAAABAAFAAwAAAD8////AwAPAAAAAAD8/wAAAwAPAAEAAAD8/wEAAwAPAAIAAAD//wEABAAEAA0AAAAAAAEABAAFAA0AAAABAAEABAAGAA0AAAACAAEABAAHAA0AAAADAAEABAAIAA0AAAD9/wIABAAMAAIAAAD//wIABAAEAA4AAAAAAAIABAAFAA4AAAABAAIABAAGAA4AAAACAAIABAAHAA4AAAD9/wMABAAMAAMAAAD8/wMABAALAAMAAAADAAIABAAIAA4AAAAFAAEABAAKAA0AAAAFAAIABAAKAA4AAAAFAAYABAAGAAkAAAD7/wIABAAKAAIAAAD7/wMABAAKAAMAAAD7/wQABAAMAAcAAAD7/wUABAAMAAgAAAD7/wEAAwAOAAIAAAD7/wAAAwAOAAEAAAD7////AwAOAAAAAAD7/wYABAAMAAkAAAAEAAIABAAJAA4AAAAFAAQABAAGAAcAAAAFAAUABAAGAAgAAAAEAAEABAAJAA0AAAAFAAAABAAKAAwAAAAEAAAABAAIAAwAAAAEAP//BAAFAA8AAAD6/wIABAAAAAsAAAD6/wQABAALAAcAAAD6/wUABAALAAgAAAD6/wYABAALAAkAAAD6/wEABAAAAAoAAAD+////AQAFAAEAAAD8/wIABAALAAIAAAA=")
 tile_set = SubResource("TileSet_jayt6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_xqmt3")
+
+[node name="Bottom" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 120)
+shape = SubResource("RectangleShape2D_1fr0b")
+
+[node name="Left" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-112, 64)
+shape = SubResource("RectangleShape2D_ec3us")
+
+[node name="Right" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(112, 63)
+shape = SubResource("RectangleShape2D_xt42f")
+
+[node name="Kitchen" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(44, 32)
+shape = SubResource("RectangleShape2D_0r7ff")
+
+[node name="Chair" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-87, 103)
+shape = SubResource("RectangleShape2D_2awfs")
