@@ -1,12 +1,12 @@
-[gd_scene load_steps=21 format=4 uid="uid://csakxwl7ihff2"]
+[gd_scene load_steps=21 format=4 uid="uid://bo13mffo6wcr3"]
 
 [ext_resource type="Script" path="res://assets/scenes/house.gd" id="1_kvf2h"]
-[ext_resource type="Texture2D" uid="uid://d1jyv2rkf05al" path="res://assets/tiles/interior_tiles/TopDownHouse_FloorsAndWalls.png" id="1_qgqei"]
-[ext_resource type="Texture2D" uid="uid://orck5fyskbl3" path="res://assets/tiles/interior_tiles/TopDownHouse_SmallItems.png" id="2_7kwbo"]
-[ext_resource type="Texture2D" uid="uid://rwuojg2oqtxt" path="res://assets/tiles/interior_tiles/TopDownHouse_DoorsAndWindows.png" id="3_qdr2y"]
-[ext_resource type="Texture2D" uid="uid://d1ql62vg5fnp6" path="res://assets/tiles/interior_tiles/TopDownHouse_FurnitureState1.png" id="4_0dgtn"]
-[ext_resource type="PackedScene" uid="uid://bsxlwcof00y8d" path="res://assets/scenes/player.tscn" id="5_7488h"]
-[ext_resource type="PackedScene" uid="uid://bw8d74istlvm8" path="res://assets/scenes/textbox.tscn" id="6_xuhqf"]
+[ext_resource type="Texture2D" uid="uid://bw530c5q63cqc" path="res://assets/tiles/interior_tiles/TopDownHouse_FloorsAndWalls.png" id="1_qgqei"]
+[ext_resource type="Texture2D" uid="uid://g5awsq1qwm0y" path="res://assets/tiles/interior_tiles/TopDownHouse_SmallItems.png" id="2_7kwbo"]
+[ext_resource type="Texture2D" uid="uid://dvvdvaxgbuqfk" path="res://assets/tiles/interior_tiles/TopDownHouse_DoorsAndWindows.png" id="3_qdr2y"]
+[ext_resource type="Texture2D" uid="uid://fixlc21uiouo" path="res://assets/tiles/interior_tiles/TopDownHouse_FurnitureState1.png" id="4_0dgtn"]
+[ext_resource type="PackedScene" uid="uid://bsxlwcof00y8d" path="res://assets/Scenes/player.tscn" id="5_7488h"]
+[ext_resource type="PackedScene" uid="uid://bw8d74istlvm8" path="res://assets/Scenes/textbox.tscn" id="6_xuhqf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqmt3"]
 size = Vector2(208, 26)
