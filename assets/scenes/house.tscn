@@ -1,12 +1,11 @@
-[gd_scene load_steps=22 format=4 uid="uid://bo13mffo6wcr3"]
+[gd_scene load_steps=19 format=4 uid="uid://bo13mffo6wcr3"]
 
 [ext_resource type="Script" path="res://assets/scenes/house.gd" id="1_kvf2h"]
-[ext_resource type="Texture2D" uid="uid://bw530c5q63cqc" path="res://assets/tiles/interior_tiles/TopDownHouse_FloorsAndWalls.png" id="1_qgqei"]
-[ext_resource type="Texture2D" uid="uid://g5awsq1qwm0y" path="res://assets/tiles/interior_tiles/TopDownHouse_SmallItems.png" id="2_7kwbo"]
-[ext_resource type="Texture2D" uid="uid://dvvdvaxgbuqfk" path="res://assets/tiles/interior_tiles/TopDownHouse_DoorsAndWindows.png" id="3_qdr2y"]
-[ext_resource type="Texture2D" uid="uid://fixlc21uiouo" path="res://assets/tiles/interior_tiles/TopDownHouse_FurnitureState1.png" id="4_0dgtn"]
-[ext_resource type="PackedScene" uid="uid://bsxlwcof00y8d" path="res://assets/Scenes/player.tscn" id="5_7488h"]
-[ext_resource type="Script" path="res://assets/scenes/exit.gd" id="7_3nw3w"]
+[ext_resource type="Texture2D" uid="uid://c1gu4a88wjboc" path="res://assets/tiles/interior_tiles/TopDownHouse_FloorsAndWalls.png" id="1_qgqei"]
+[ext_resource type="Texture2D" uid="uid://c7dwqnsnkii60" path="res://assets/tiles/interior_tiles/TopDownHouse_SmallItems.png" id="2_7kwbo"]
+[ext_resource type="Texture2D" uid="uid://bgkba2610bceo" path="res://assets/tiles/interior_tiles/TopDownHouse_DoorsAndWindows.png" id="3_qdr2y"]
+[ext_resource type="Texture2D" uid="uid://c5g1a8n7kjueb" path="res://assets/tiles/interior_tiles/TopDownHouse_FurnitureState1.png" id="4_0dgtn"]
+[ext_resource type="PackedScene" uid="uid://bsxlwcof00y8d" path="res://assets/scenes/player.tscn" id="5_7488h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqmt3"]
 size = Vector2(208, 26)
@@ -913,12 +912,6 @@ sources/2 = SubResource("TileSetAtlasSource_jxcs4")
 sources/3 = SubResource("TileSetAtlasSource_lbrky")
 sources/4 = SubResource("TileSetAtlasSource_y4wtn")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2fym"]
-size = Vector2(78.1062, 113.816)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_05asa"]
-size = Vector2(45, 29.5)
-
 [node name="House_Tiling" type="Node2D"]
 position = Vector2(512, 256)
 scale = Vector2(2.99264, 3)
@@ -959,23 +952,4 @@ tile_map_data = PackedByteArray("AAADAP//BAAEAA8AAAADAAAABAAIAAwAAAACAAAABAAHAAw
 tile_set = SubResource("TileSet_jayt6")
 
 [node name="player" parent="." instance=ExtResource("5_7488h")]
-position = Vector2(-1, 64)
-scale = Vector2(0.33288, 0.342657)
-
-[node name="PlayerArea" type="Area2D" parent="player"]
-
-[node name="PlayerInteractionCollision" type="CollisionShape2D" parent="player/PlayerArea"]
-position = Vector2(0, -10.2143)
-shape = SubResource("RectangleShape2D_e2fym")
-
-[node name="Exit" type="Node2D" parent="." groups=["interactable"]]
-
-[node name="ExitArea" type="Area2D" parent="Exit"]
-script = ExtResource("7_3nw3w")
-
-[node name="ExitCollision" type="CollisionShape2D" parent="Exit/ExitArea"]
-position = Vector2(-55.5, 48.25)
-shape = SubResource("RectangleShape2D_05asa")
-
-[connection signal="area_entered" from="Exit/ExitArea" to="Exit/ExitArea" method="_on_area_entered"]
-[connection signal="area_exited" from="Exit/ExitArea" to="Exit/ExitArea" method="_on_area_exited"]
+position = Vector2(0, 66.6667)
