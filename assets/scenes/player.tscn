@@ -1,10 +1,10 @@
 [gd_scene load_steps=20 format=3 uid="uid://bsxlwcof00y8d"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_g65y7"]
-[ext_resource type="Texture2D" uid="uid://dwioix2uv4c66" path="res://assets/sprites/salarymanspritesheet.png" id="2_rrwc8"]
+[ext_resource type="Texture2D" uid="uid://d1wc35fj2sall" path="res://assets/sprites/salarymanspritesheet.png" id="2_rrwc8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7kt4i"]
-size = Vector2(30, 66.5)
+size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ypfy"]
 atlas = ExtResource("2_rrwc8")
@@ -164,7 +164,7 @@ script = ExtResource("1_g65y7")
 SPEED = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 13.25)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_7kt4i")
 
 [node name="AnimatedPlayerSprite" type="AnimatedSprite2D" parent="."]
