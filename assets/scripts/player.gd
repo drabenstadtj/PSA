@@ -31,7 +31,6 @@ func _physics_process(delta: float) -> void:
 				_animated_sprite.play("run_up")
 			7:
 				_animated_sprite.play("run_up_right")
-		print(angle)
 	else:
 		_animated_sprite.play("idle")
 
@@ -43,14 +42,15 @@ func _process(delta: float) -> void:
 	
 	# Handle player interaction
 	if Input.is_action_just_pressed("interact") and current_interactable != null:
-		print("action pressed.")
-		print(current_interactable)
 		# Call the interact method on the interactable object
 		current_interactable.interact()
 
 func set_interactable(interactable: Node2D) -> void:
-	if interactable != null:
-		print("interactable set to:", interactable.name)
-	else:
-		print("interactable cleared")
 	current_interactable = interactable
+	
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.has_method("interact"):
+		set_interactable(area)
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	set_interactable(null)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=21 format=4 uid="uid://bo13mffo6wcr3"]
+[gd_scene load_steps=20 format=4 uid="uid://bo13mffo6wcr3"]
 
 [ext_resource type="Texture2D" uid="uid://c1gu4a88wjboc" path="res://assets/tiles/interior_tiles/TopDownHouse_FloorsAndWalls.png" id="1_qgqei"]
-[ext_resource type="Script" path="res://assets/scripts/house.gd" id="1_vuovt"]
 [ext_resource type="Texture2D" uid="uid://c7dwqnsnkii60" path="res://assets/tiles/interior_tiles/TopDownHouse_SmallItems.png" id="2_7kwbo"]
 [ext_resource type="Texture2D" uid="uid://bgkba2610bceo" path="res://assets/tiles/interior_tiles/TopDownHouse_DoorsAndWindows.png" id="3_qdr2y"]
 [ext_resource type="Texture2D" uid="uid://c5g1a8n7kjueb" path="res://assets/tiles/interior_tiles/TopDownHouse_FurnitureState1.png" id="4_0dgtn"]
@@ -917,7 +916,6 @@ sources/4 = SubResource("TileSetAtlasSource_y4wtn")
 [node name="House_Tiling" type="Node2D"]
 position = Vector2(952, 352)
 scale = Vector2(2.99264, 3)
-script = ExtResource("1_vuovt")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -960,4 +958,6 @@ position = Vector2(-13.3661, 64)
 position = Vector2(-64.1574, 42.6667)
 scale = Vector2(1.89629, 1.03217)
 
-[node name="Text2" parent="." instance=ExtResource("8_dkua8")]
+[node name="Text" parent="." instance=ExtResource("8_dkua8")]
+offset_top = 96.0
+offset_bottom = 280.0
