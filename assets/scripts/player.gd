@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	if input_dir.length() != 0:
 		# Map player angle to an int 0-7
-		var angle = input_dir.angle() / (PI/4)
+		var angle = round(input_dir.angle() / (PI/4))
 		angle = wrapi(int(angle), 0, 8)
 		# Play animation according to angle
 		match angle:
@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 				_animated_sprite.play("run_up")
 			7:
 				_animated_sprite.play("run_up_right")
+		print(angle)
 	else:
 		_animated_sprite.play("idle")
 
