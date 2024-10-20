@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://ojps0xdpsvkk"]
+[gd_scene load_steps=26 format=4 uid="uid://ojps0xdpsvkk"]
 
 [ext_resource type="Texture2D" uid="uid://bw530c5q63cqc" path="res://assets/tiles/interior_tiles/TopDownHouse_FloorsAndWalls.png" id="1_hrjbe"]
 [ext_resource type="Texture2D" uid="uid://g5awsq1qwm0y" path="res://assets/tiles/interior_tiles/TopDownHouse_SmallItems.png" id="2_kbqja"]
@@ -3023,6 +3023,9 @@ size = Vector2(39, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsoc1"]
 size = Vector2(54, 30)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xglx8"]
+size = Vector2(49, 20)
+
 [node name="House_Tiling" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -3071,3 +3074,7 @@ shape = SubResource("RectangleShape2D_j4f1x")
 [node name="bus stop" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(17, -103)
 shape = SubResource("RectangleShape2D_fsoc1")
+
+[node name="house enterance" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-50.5, -63)
+shape = SubResource("RectangleShape2D_xglx8")
